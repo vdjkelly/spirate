@@ -1,0 +1,67 @@
+                                    <div class="form-content">
+                                        <div class="row">
+                                            <div class="col-md-8 unit">
+                                                <div class="input {% if form.titulo.errors %} error-view {% endif %}">
+                                                    <label class="icon-left">
+                                                        <i class="fa fa-edit"></i>
+                                                    </label>
+                                                    {{ form.titulo }}
+                                                     <span class="error-view">{{ form.titulo.errors }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 unit">
+                                                <div class="input {% if form.categoria.errors %} error-view {% endif %}">
+                                                    <label class="input select">
+                                                        {{ form.categoria }}
+                                                        <i></i>
+                                                        <span class="error-view">{{ form.categoria.errors }}</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div><!--row-->
+                                        <div class="row">
+                                            <div class="col-lg-8 unit">
+                                                <div class="input {% if form.cuerpo.errors %} error-view {% endif %}">
+
+                                                     {{ form.cuerpo }}
+                                                    <span class="error-view">{{ form.cuerpo.errors }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 unit">
+                                                <div class="input append-big-btn">
+                                                    <label class="icon-left">
+                                                        <i class="fa fa-download"></i>
+                                                    </label>
+                                                    <div class="file-button">Subir archivo
+                                                        <input type="file" id="fileupload" class="form-control" onchange="document.getElementById('append-big-btn').value = this.value;">
+                                                    </div>
+
+                                                    {{ form.img_file }}
+                                                      <span class="error-view">{{ form.img_file.errors }}</span>
+
+                                                </div>
+
+                                                 <!-- The global progress bar -->
+                                                <div id="progress" class="progress">
+                                                    <div class="progress-bar progress-bar-success"></div>
+                                                </div>
+                                                <!-- The container for the uploaded files -->
+                                                <div id="files" class="files"></div>
+
+                                            </div>
+                                            <div class="col-md-4 unit">
+                                                <div class="input">
+                                                    {{ form.tags }}
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 unit">
+                                                <label class="checkbox-toggle">
+                                                        {{ form.permitir_comentarios }}
+                                                        <i></i>
+                                                        Comentarios
+                                                    <input class="form-control" onchange="document.getElementById('append-big-btn').value = this.value;">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>

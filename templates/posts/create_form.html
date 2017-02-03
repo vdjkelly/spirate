@@ -1,0 +1,57 @@
+{% extends 'layouts/master.html' %}
+{% load static %}
+
+{% block estilos %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/editor/froala_editor.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/fileinput.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/tags-input/bootstrap-tagsinput.css' %}">
+{% endblock %}
+{% block contenido %}
+    <div id="preview" class="modal modal-fixed-footer" style="z-index: 1003; display: none; opacity: 0; transform: scaleX(0.7); top: 163.56px; width: 70%;">
+          <div class="modal-content">
+            <h4>Vista de tu post</h4>
+            <p id="content-post"></p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Cerrar</a>
+
+          </div>
+        </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="widget-wrap" style="padding: 10px;">
+                <div class="widget-container">
+                    <div class="widget-content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="j-forms" action="" method="post" id="postsForm">
+                                    {% csrf_token %}
+                                    {% include 'posts/form.html' %}
+                                    <div class="form-footer">
+                                        <button type="submit" id="prev" class="btn btn-success primary-btn">Previsualizar</button>
+                                        <button type="reset" class="btn btn-danger secondary-btn">Borrar</button>
+                                        <button type="submit" class="btn btn-info primary-btn">Publicar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/editor/froala_editor.min.js' %}"></script>
+    <script src="{% static 'js/editor/plugins/lists.min.js' %}"></script>
+    <script src="{% static 'js/editor/plugins/colors.min.js' %}"></script>
+    <script src="{% static 'js/editor/plugins/video.min.js' %}"></script>
+    <script src="{% static 'js/editor/plugins/font_family.min.js' %}"></script>
+    <script src="{% static 'js/editor/plugins/font_size.min.js' %}"></script>
+    <script src="{% static 'js/file-input/fileinput.js' %}"></script>
+    <script src="{% static 'js/tags-input/bootstrap-tagsinput.js' %}"></script>
+    <script src="{% static 'js/editor/acciones-editor.js' %}"></script>
+    <script src="{% static 'js/formvalidation/validate.init.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+<!--Leftbar Start Here-->
+<aside class="leftbar material-leftbar">
+    <div class="left-aside-container">
+        <div class="user-profile-container">
+            <div class="user-profile clearfix">
+                <div class="admin-user-thumb">
+                    <img src="http://lab.westilian.com/westilo-admin/material-style-sidebar/images/avatar/jaman_01.jpg" alt="admin">
+                </div>
+                <div class="admin-user-info">
+                    <ul>
+                        <li><a href="#">{{ posts_view.user.username }}</a></li>
+                        <li><a href="#">Info@jaman.me</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="admin-bar">
+                <ul>
+                    <li><a href="#"><i class="zmdi zmdi-power"></i>
+                    </a>
+                    </li>
+                    <li><a href="#"><i class="zmdi zmdi-account"></i>
+                    </a>
+                    </li>
+                    <li><a href="#"><i class="zmdi zmdi-key"></i>
+                    </a>
+                    </li>
+                    <li><a href="#"><i class="zmdi zmdi-settings"></i>
+                    </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul class="list-accordion">
+            <li class="list-title">
+                <div class="follow" data-toggle="buttons" data-id="{{ posts_view.user.pk }}">
+
+                  {% if user.is_authenticated %}
+                    <label class="btn btn-lg btn-success un_follow {% if seguido == 0 %} active {% endif %}">
+                        <input type="radio" name="options" id="option1" autocomplete="off" checked>
+                        <i class="fa fa-check"></i> Deja de Seguir
+                    </label>
+
+
+
+
+                    <label class="btn btn-lg btn-danger to_follow   {% if seguido == 1 %} active {% endif %}" >
+                        <input type="radio" name="options" id="option2" autocomplete="off" >
+                        <i class="fa fa-warning"></i> Seguir
+                    </label>
+                    {% endif %}
+                </div>
+            </li>
+        </ul>
+        <div class="tabby-leftbar">
+        <ul class="nav nav-tabs material-tabs" role="tablist">
+            <li class=""><a href="#email_tab" aria-controls="notifications" role="tab" data-toggle="tab" aria-expanded="false"> <i class="zmdi zmdi-email"></i></a></li>
+            <li class="active"><a href="#info_tab" aria-controls="notifications" role="tab" data-toggle="tab" aria-expanded="true"> <i class="zmdi zmdi-ticket-star"></i></a></li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane" id="email_tab">
+                <div class="compose-btn">
+                    <button type="button" class="btn btn-info btn-block compose-mail"><i class="ico-mode-edit"></i> Enviar Mensaje</button>
+                </div>
+
+
+            </div>
+            <div role="tabpanel" class="tab-pane active" id="info_tab">
+                <ul class="support-box-list">
+
+                    <li><a href="#"><i class="zmdi zmdi-file-text"></i><span>Posts</span><span class="new-item-count">{{ posts_view.user.perfil.posts }}</span></a>
+                    </li>
+
+                    <li><a href="#"><i class="zmdi zmdi-check"></i><span>Puntos</span> <span class="new-item-count">{{ posts_view.user.perfil.puntos }}</span></a>
+                    </li>
+                    <li><a href="#"><i class="zmdi zmdi-face"></i><span>Seguidores</span><span class="new-item-count">{{ posts_view.user.perfil.seguidores }}</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+</aside>
+<!--Leftbar End Here-->

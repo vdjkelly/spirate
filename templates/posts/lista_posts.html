@@ -1,0 +1,69 @@
+{% extends "layouts/master.html" %}
+
+{% load static %}
+
+
+{% block contenido %}
+  <div class="row">
+    <div class="[ col-md-12 ]">
+      <ul class="event-list">
+        {% for post in object_list %}
+        <li>
+
+          <!--<time datetime="2014-07-20">
+            <span class="day">{{ post.creado|date:"d" }}</span>
+            <span class="month">{{ post.creado|date:"M" }}</span>
+            <span class="year">2014</span>
+            <span class="time">ALL DAY</span>
+          </time>-->
+          <img alt="Independence Day" src="{{ post.img_file }}" />
+
+          <div class="info">
+							<h2 class="title"><a href="{{ post.get_absolute_url }}">{{ post.titulo|escape }}</a></h2>
+							<!--<p class="desc"> Pirate and Princess Adventure</p>-->
+							<ul>
+								<li style="width:33%;">{{ post.comentarios }} <span class="fa fa-male"></span></li>
+								<li style="width:34%;">{{ post.puntos }} <span class="fa fa-child"></span></li>
+							</ul>
+						</div>
+          <div class="social">
+            <ul>
+              <li class="facebook" style="width:33%;"><a href="#facebook"><span class="fa fa-facebook"></span></a></li>
+              <li class="twitter" style="width:34%;"><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
+              <li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>
+            </ul>
+          </div>
+        </li>
+        {% endfor %}
+
+      </ul>
+    </div>
+
+
+
+
+<ul class="pagination">
+
+{% if page_obj.has_previous %}
+  <li>
+    <a href="?page={{ page_obj.previous_page_number }}">«</a>
+  </li>
+{% endif %}
+
+{% for page in page_obj.paginator.page_range %}
+    {% if forloop.counter != 1 %} {% endif %}
+    <li class="{% if page_obj.number == page  %}active{% endif %}">
+      <a href="?page={{  page }}">{{ page }} </a>
+    </li>
+{% endfor %}
+
+{% if page_obj.has_next %}
+  <li>
+    <a href="?page={{ page_obj.next_page_number }}">»</a>
+  </li>
+{% endif %}
+
+</ul>
+</div>
+
+{% endblock contenido %}
